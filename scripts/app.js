@@ -15,4 +15,16 @@ const encriptadorAcme = (texto) => {
     return encriptado;
 }
 
-console.log(encriptadorAcme('hola como estas'))
+const desencriptadorAcme = (texto) => {
+    desencriptado = texto
+        .replaceAll(/ai/g, 'a')
+        .replaceAll(/enter/g, 'e')
+        .replaceAll(/imes/g, 'i')
+        .replaceAll(/ober/g, 'o')
+        .replaceAll(/ufat/g, 'u')
+    return desencriptado;
+}
+
+console.log(encriptadorAcme('hola'))
+
+console.log(desencriptadorAcme('hoberlaimes'))
