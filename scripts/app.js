@@ -8,6 +8,7 @@ Solo letras minusculas
 No se permite acentuación de palabras 
 */
 
+// Encriptado
 const encripta = texto => texto
     .replaceAll( 'e', 'enter' )
     .replaceAll( 'i', 'imes' )
@@ -18,37 +19,26 @@ const encripta = texto => texto
 
 console.log( encripta ('hola como estas') )
 
-
-/* Reglas de desencriptación: 
-'enter' es convertido para 'e' 
-'imes' es convertido para 'i'
-'ai' es convertido para 'a'
-'ober' es convertido para 'o'
-'ufat' es convertido para 'u'
-Solo letras minusculas
-No se permite acentuación de palabras   
-*/
-
+// Desencriptado
 const desencripta = texto => {
-    for (let i = 0; i < texto.length; i++) {
-        texto = texto.replace( 'enter', 'e' );
-        texto = texto.replace( 'imes', 'i' );
-        texto = texto.replace( 'ai', 'a' );
-        texto = texto.replace( 'ober', 'o' );
-        texto = texto.replace( 'ufat', 'u' );
-                
-            
+    for (letra in texto) {
+        texto = texto
+            .replace( 'enter', 'e' )
+            .replace( 'imes', 'i' )
+            .replace( 'ai', 'a' )
+            .replace( 'ober', 'o' )
+            .replace( 'ufat', 'u' );
     }
     return texto;
-}
+}  
 
 console.log(desencripta('hoberlai cobermober enterstais'))
 
 
 // Función de copiar 
 
-function copy() {
-    var copyText = document.querySelector('#msg');
+const copy = () => {
+    let copyText = document.querySelector('#msg');
     copyText.select();
     document.execCommand('copy');
 }
