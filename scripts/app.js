@@ -20,17 +20,11 @@ const encripta = texto => texto
 console.log( encripta ('hola como estas') )
 
 // Desencriptado
-const desencripta = texto => {
-    for (letra in texto) {
-        texto = texto
-            .replace( 'enter', 'e' )
-            .replace( 'imes', 'i' )
-            .replace( 'ai', 'a' )
-            .replace( 'ober', 'o' )
-            .replace( 'ufat', 'u' );
-    }
-    return texto;
-}  
+const desencripta = texto => texto
+    .replaceAll( 'enter', 'e' )
+    .replaceAll( 'imes', 'i' )
+    .replaceAll( 'ai', 'a' )
+    .replaceAll( 'ober', 'o' )
 
 console.log(desencripta('hoberlai cobermober enterstais'))
 
