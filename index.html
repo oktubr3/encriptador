@@ -12,19 +12,20 @@
     <title>Encriptador</title>
   </head>
   <body>
-    <h1 class="my-3 text-center text-4xl text-gray-700">Encriptador</h1>
+    <h1 class="my-3 mt-4 text-center text-4xl text-gray-700 font-sans">Encriptador</h1>
 
     <div class="flex justify-center">
-      <textarea
-        class="w-1/3 px-3 py-2 my-4 text-gray-700 border border-gray-600 rounded-lg focus:outline-none"
-        rows="4"
+      <textarea id="textAreaInput"
+        class="w-3/4 px-3 py-2 my-4 text-gray-700 border border-gray-600 rounded-lg focus:outline-none"
+        rows="4" placeholder="Escribe aquí texto sin acentos ni caracteres especiales"
       ></textarea>
     </div>
 
-    <div class="flex space-x-2 justify-center mb-4">
+    <div class="flex space-x-2 justify-center mb-6">
       <div class="flex flex-row">
-        <button
-          class="flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-red-600 text-red-600 max-w-max shadow-sm hover:shadow-lg"
+        <button 
+          id="btnEncript"
+          class="w-56 flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-red-500 text-red-500 shadow-sm hover:shadow-lg text-lg font-sans font-bold items-center place-content-center"
         >
           <span>Encriptar</span> 
 
@@ -47,8 +48,9 @@
           </svg>
           
         </button>
-        <button
-          class="flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-green-600 text-green-600 max-w-max shadow-sm hover:shadow-lg"
+        <button 
+          id="btnDecript"
+          class="flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-green-600 text-green-600 shadow-sm hover:shadow-lg font-sans font-bold items-center place-content-center"
         >
           <span> Desencriptar </span> 
 
@@ -74,15 +76,16 @@
     </div>
 
     <div class="flex justify-center">
-      <textarea
-        class="w-1/3 px-3 py-2 mt-6 mb-4 text-gray-700 border border-gray-600 rounded-lg focus:outline-none"
+      <textarea id="textAreaOutput"
+        class="w-3/4 h-60 px-3 py-2 mt-6 mb-4 text-gray-700 border border-gray-600 rounded-lg focus:outline-none"
         rows="4"
       ></textarea>
     </div>
 
     <div class="flex flex-row space-x-2 justify-center">
       <button
-        class="uppercase p-3 m-3 flex items-center border border-red-600 text-red-600 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
+        id="btnDelete"
+        class="uppercase p-3 m-3 flex items-center border border-red-500 text-red-500 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
       >
         <svg
           width="32"
@@ -101,6 +104,7 @@
         </svg>
       </button>
       <button
+        id="btnCopy"
         class="uppercase p-3 m-3 flex items-center border border-green-600 text-green-600 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
       >
         <svg
