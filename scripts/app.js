@@ -5,6 +5,7 @@ const btnDecript = document.querySelector('#btnDecript');
 const btnCopy = document.querySelector('#btnCopy');
 const btnDelete = document.querySelector('#btnDelete');
 
+
 /* Reglas de encriptación: 
 'e' es convertido para 'enter' 
 'i' es convertido para 'imes'
@@ -52,15 +53,13 @@ const copy = () => {
     copyText.select();
     document.execCommand('copy');
     clean(output);
-    
 }
+document.querySelector('#btnCopy').addEventListener('click', copy);
 
-function clean(output) {
+const clean = (output) => {
     output.value = "Copiado...";
     setTimeout(() => {
         output.value = "";
     }, 500);
 }
-
-document.querySelector('#btnCopy').addEventListener('click', copy);
 
