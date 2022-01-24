@@ -61,7 +61,7 @@ btnCopy.addEventListener('click', copy);
 
 // Mensaje de copiado
 const copiado = () => {
-    output.value = "Copiado...";
+    output.value = "Copiando...";
     setTimeout(() => {
         output.value = "";
     }, 500);
@@ -69,7 +69,6 @@ const copiado = () => {
 
 // Validar input
 let valido = true;
-
 validarInput = () => {
     const regexp = /^[a-z0-9 ]+$/;
     if (!regexp.test(input.value)) {
@@ -80,3 +79,7 @@ validarInput = () => {
     }
 
 }
+
+
+
+
