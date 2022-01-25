@@ -8,134 +8,162 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Encriptador</title>
   </head>
   <body>
-    <h1 class="my-3 mt-4 text-center text-4xl text-gray-700 font-sans">Encriptador</h1>
+    <div class="flex flex-col h-screen">
+      <main class="p-4 flex-grow">
+        <h1 class="my-3 mt-4 text-center text-4xl text-white font-sans">
+          Encriptador
+        </h1>
 
-    <div class="flex justify-center">
-      <textarea id="textAreaInput"
-        class="w-3/4 px-3 py-2 my-4 text-gray-700 border border-gray-600 rounded-lg focus:outline-none"
-        rows="4" placeholder="Escribe aquí texto sin acentos ni caracteres especiales"
-      ></textarea>
-    </div>
+        <div class="flex justify-center">
+          <textarea
+            id="textAreaInput"
+            class="w-3/4 px-3 py-2 my-4 text-gray-700 border border-gray-600 rounded-lg focus:outline-none"
+            rows="6"
+            placeholder="Escribe aquí texto sin acentos ni caracteres especiales"
+          ></textarea>
+        </div>
 
-    <div class="flex flex-row space-x-2 justify-center mb-6">
-      <div class="flex flex-row">
-        <button 
-          id="btnEncript"
-          class=" flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-red-500 text-red-500 shadow-sm hover:shadow-lg text-sm md:text-base font-sans font-bold items-center place-content-center"
-        >
-          <span>Encriptar</span> 
+        <div class="flex flex-row space-x-2 justify-center mb-6">
+          <div class="flex flex-row">
+            <button
+              id="btnEncript"
+              class="flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-red-500 text-red-500 shadow-sm hover:shadow-lg text-sm md:text-base font-sans font-bold items-center place-content-center"
+            >
+              <span>Encriptar</span>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-lock"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-lock"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+                <circle cx="12" cy="16" r="1"></circle>
+                <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
+              </svg>
+            </button>
+            <button
+              id="btnDecript"
+              class="flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-green-600 text-green-600 shadow-sm hover:shadow-lg text-sm md:text-base font-sans font-bold items-center place-content-center"
+            >
+              <span> Desencriptar </span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-lock-open"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+                <circle cx="12" cy="16" r="1"></circle>
+                <path d="M8 11v-5a4 4 0 0 1 8 0"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <textarea
+            id="textAreaOutput"
+            class="w-3/4 h-60 px-3 py-2 mt-6 mb-4 text-gray-700 border border-gray-600 rounded-lg focus:outline-none"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <div class="flex flex-row space-x-2 justify-center">
+          <button
+            id="btnDelete"
+            class="uppercase p-3 m-3 flex items-center border border-red-500 text-red-500 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
           >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <rect x="5" y="11" width="14" height="10" rx="2"></rect>
-            <circle cx="12" cy="16" r="1"></circle>
-            <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
-          </svg>
-          
-        </button>
-        <button 
-          id="btnDecript"
-          class="flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-green-600 text-green-600 shadow-sm hover:shadow-lg text-sm md:text-base font-sans font-bold items-center place-content-center"
-        >
-          <span> Desencriptar </span> 
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-lock-open"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            <svg
+              width="32"
+              height="32"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 32 32"
+              style="transform: rotate(360deg)"
+            >
+              <path d="M12 12h2v12h-2z" fill="currentColor"></path>
+              <path d="M18 12h2v12h-2z" fill="currentColor"></path>
+              <path
+                d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20z"
+                fill="currentColor"
+              ></path>
+              <path d="M12 2h8v2h-8z" fill="currentColor"></path>
+            </svg>
+          </button>
+          <button
+            id="btnCopy"
+            class="uppercase p-3 m-3 flex items-center border border-green-600 text-green-600 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
           >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <rect x="5" y="11" width="14" height="10" rx="2"></rect>
-            <circle cx="12" cy="16" r="1"></circle>
-            <path d="M8 11v-5a4 4 0 0 1 8 0"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-copy"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+              <path
+                d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </main>
+      <footer class="relative w-full text-center">
+        <div class="absolute inset-x-0 bottom-0">
+          <div
+            class="flex flex-row space-x-2 text-white text-center p-4 justify-center"
+          >
+            <span> Made with </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-filled icon-tabler icon-tabler-heart"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="#EF4444"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19.5 13.572l-7.5 7.428-7.5-7.428m0 0a5 5 0 1 1 7.5-6.566 5 5 0 1 1 7.5 6.572"
+              />
+            </svg>
 
-    <div class="flex justify-center">
-      <textarea id="textAreaOutput"
-        class="w-3/4 h-60 px-3 py-2 mt-6 mb-4 text-gray-700 border border-gray-600 rounded-lg focus:outline-none"
-        rows="4"
-      ></textarea>
+            <span> by oktubr3 </span>
+          </div>
+        </div>
+      </footer>
+      <script src="./scripts/app.js"></script>
     </div>
-
-    <div class="flex flex-row space-x-2 justify-center">
-      <button
-        id="btnDelete"
-        class="uppercase p-3 m-3 flex items-center border border-red-500 text-red-500 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
-      >
-        <svg
-          width="32"
-          height="32"
-          preserveAspectRatio="xMidYMid meet"
-          viewBox="0 0 32 32"
-          style="transform: rotate(360deg)"
-        >
-          <path d="M12 12h2v12h-2z" fill="currentColor"></path>
-          <path d="M18 12h2v12h-2z" fill="currentColor"></path>
-          <path
-            d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20z"
-            fill="currentColor"
-          ></path>
-          <path d="M12 2h8v2h-8z" fill="currentColor"></path>
-        </svg>
-      </button>
-      <button
-        id="btnCopy"
-        class="uppercase p-3 m-3 flex items-center border border-green-600 text-green-600 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-copy"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <rect x="8" y="8" width="12" height="12" rx="2"></rect>
-          <path
-            d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"
-          ></path>
-        </svg>
-      </button>
-    </div>
-  <footer class="fixed inset-x-0 bottom-0 w-full  bg-gray-200 text-center lg:text-left">
-  <div class="flex flex-row space-x-2 text-gray-700 text-center p-4 justify-center">
-    <span> Made with </span> <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-filled icon-tabler icon-tabler-heart" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 13.572l-7.5 7.428-7.5-7.428m0 0a5 5 0 1 1 7.5-6.566 5 5 0 1 1 7.5 6.572"/></svg></> <span> by oktubr3 </span>
-  </div>
-</footer>
-    <script src="./scripts/app.js"></script>
   </body>
-
-
-
 </html>

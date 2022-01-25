@@ -5,6 +5,10 @@ const btnDecript = document.querySelector('#btnDecript');
 const btnCopy = document.querySelector('#btnCopy');
 const btnDelete = document.querySelector('#btnDelete');
 
+
+
+
+
 /* Reglas de encriptación: 
 'e' es convertido para 'enter' 
 'i' es convertido para 'imes'
@@ -15,41 +19,50 @@ Solo letras minusculas
 No se permite acentuación de palabras 
 */
 
-// Encriptado
-btnEncript.addEventListener('click', (e) => {
-    e.preventDefault()  // Evita que se recargue la página
-    let text = input.value;
-    validarInput();  // Valida que el input no tenga caracteres especiales   
-    if (valido) {
-        output.value = text
-            .replaceAll('e', 'enter')
-            .replaceAll('i', 'imes')
-            .replaceAll('a', 'ai')
-            .replaceAll('o', 'ober')
-            .replaceAll('u', 'ufat');
+// Encriptar
+const encriptarTexto = () => {
+    validarInput();
+    if (!valido) {
+        alert('Por favor no uses caracteres especiales ni mayusculas')
+        location.reload(); //Recargar la página
+    } else {
+        let text = input.value;
+        let letraModificada = text
+            .replace(/e/gi, "enter")
+            .replace(/i/gi, "imes")
+            .replace(/a/gi, "ai")
+            .replace(/o/gi, "ober")
+            .replace(/u/gi, "ufat");
+        return output.value = letraModificada;
     }
-});
+}
+btnEncript.onclick = encriptarTexto;
 
-// Desencriptado
-btnDecript.addEventListener("click", (e) => {
-    e.preventDefault()  // Evita que se recargue la página
+// Desencriptar
+const desencriptarTexto = () => {
+    validarInput();
     let text = input.value;
-    validarInput();  // Valida que el input no tenga caracteres especiales
-    if(valido){
-        output.value = text
-            .replaceAll('enter', 'e')
-            .replaceAll('imes', 'i')
-            .replaceAll('ai', 'a')
-            .replaceAll('ober', 'o')
-            .replaceAll('ufat', 'u');
+    if (!valido) {
+        alert('Por favor no uses caracteres especiales ni mayusculas')
+        location.reload(); //Recargar la página
+    } else {
+        let letraModificada = text
+            .replace(/enter/gi, "e")
+            .replace(/imes/gi, "i")
+            .replace(/ai/gi, "a")
+            .replace(/ober/gi, "o")
+            .replace(/ufat/gi, "u");
+
+        return output.value = letraModificada;
     }
-});
+}
+btnDecript.onclick = desencriptarTexto;
 
 // Eliminar texto
-btnDelete.addEventListener("click", (e) => {
-    e.preventDefault()  // Evita que se recargue la página
+const borrar = () => {
     output.value = '';
-});
+};
+btnDelete.onclick = borrar;
 
 // Copiar al portapapeles
 const copy = () => {
@@ -57,7 +70,7 @@ const copy = () => {
     document.execCommand('copy');
     copiado();
 }
-btnCopy.addEventListener('click', copy);
+
 
 // Mensaje de copiado
 const copiado = () => {
@@ -66,18 +79,17 @@ const copiado = () => {
         output.value = "";
     }, 500);
 }
+btnCopy.onclick = copy;
 
 // Validar input
 let valido = true;
-validarInput = () => {
+const validarInput = () => {
     const regexp = /^[a-z0-9 ]+$/;
     if (!regexp.test(input.value)) {
-        alert('No se permiten caracteres especiales ni mayusculas!');
         input.value = '';
         output.value = '';
         valido = false;
     }
-
 }
 
 
