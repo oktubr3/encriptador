@@ -15,8 +15,8 @@
   <body>
     <div class="flex flex-col h-screen">
       <main class="p-4 flex-grow">
-        <h1 class="my-3 mt-4 text-center text-4xl text-white font-sans">
-          Encriptador
+        <h1 class="my-3 mt-4 text-center md:text-5xl text-3xl text-slate-200 font-sans">
+          Simple Encryptor
         </h1>
 
         <div class="flex justify-center">
@@ -28,26 +28,15 @@
           ></textarea>
         </div>
 
-        <div class="flex flex-row space-x-2 justify-center mb-6">
-          <div class="flex flex-row">
+        <div class="flex flex-row space-x-2 justify-center mb-2 md:mb-6">
+          <div class="flex flex-col md:flex-row">
             <button
               id="btnEncript"
               class="flex flex-row space-x-2 uppercase px-8 py-2 m-3 rounded border border-red-500 text-red-500 shadow-sm hover:shadow-lg text-sm md:text-base font-sans font-bold items-center place-content-center"
             >
               <span>Encriptar</span>
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-lock"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <rect x="5" y="11" width="14" height="10" rx="2"></rect>
                 <circle cx="12" cy="16" r="1"></circle>
@@ -135,7 +124,7 @@
           </button>
         </div>
       </main>
-      <footer class="relative w-full text-center">
+      <footer class="relative w-full py-3 text-center">
         <div class="absolute inset-x-0 bottom-0">
           <div
             class="flex flex-row space-x-2 text-white text-center p-4 justify-center"
