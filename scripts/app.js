@@ -5,10 +5,6 @@ const btnDecript = document.querySelector('#btnDecript');
 const btnCopy = document.querySelector('#btnCopy');
 const btnDelete = document.querySelector('#btnDelete');
 
-
-
-
-
 /* Reglas de encriptación: 
 'e' es convertido para 'enter' 
 'i' es convertido para 'imes'
@@ -60,6 +56,7 @@ btnDecript.onclick = desencriptarTexto;
 
 // Eliminar texto
 const borrar = () => {
+    input.value = '';
     output.value = '';
 };
 btnDelete.onclick = borrar;
@@ -69,8 +66,8 @@ const copy = () => {
     output.select();
     document.execCommand('copy');
     copiado();
+    input.value = '';
 }
-
 
 // Mensaje de copiado
 const copiado = () => {
@@ -90,8 +87,9 @@ const validarInput = () => {
         output.value = '';
         valido = false;
     }
+    if (input.value === '') {
+        alert('Por favor escribe un texto.');
+        location.reload(); //Recargar la página
+        valido = true;
+    }
 }
-
-
-
-
